@@ -1,0 +1,697 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1b1b1b;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background-color: #2c2c2c;
+  padding: 20px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  color: #cfa36d;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('ayodhya.webp');
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.hero-text {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+}
+
+.hero-text h2 {
+  font-size: 48px;
+  margin-bottom: 20px;  /* Added margin to avoid overlap */
+}
+
+.hero-text h4 {
+  font-size: 24px;
+  margin-bottom: 30px;  /* Added margin to avoid overlap with the button */
+}
+
+.book-btn {
+  background-color: #cfa36d;
+  color: #fff;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.book-btn:hover {
+  background-color: #b28954;
+}
+
+/* Section Headings (centered for all sections) */
+section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* About Us Section */
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;  /* Added text-align center */
+}
+
+.about-content {
+  max-width: 700px;
+  padding-right: 10px;
+}
+
+.about-image img {
+  width: 100%; /* Set to 100% width initially */
+  max-width: 400px; /* Limit the maximum width of the image */
+  height: auto; /* Keep the image aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  margin: 0 auto; /* Center the image horizontally if required */
+  display: block;
+}
+
+/* Services Section */
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 50px 0;
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.service-card {
+  background: #fff;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.service-card .icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #cfa36d;
+}
+
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.service-card:hover {
+  transform: scale(1.05); /* Zoom in effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+/* Gallery Section */
+
+/* Container for gallery images */
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
+
+/* Home page gallery styling */
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 10px;
+}
+
+.gallery-images img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 5px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.see-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.see-more button {
+  padding: 20px 40px;
+  background-color: #cfa36d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.see-more button:hover {
+  background-color: #b28954;
+}
+
+/* Modal (Popup) Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* Modal gallery styling */
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.modal-gallery img {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Fix for margin and center alignment for all sections */
+.section {
+  padding: 60px 0;
+}
+
+.section h2 {
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+
+/* Living Room Section */
+.room-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.room-card {
+  background-color: #fff;
+  color: #333;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.room-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.room-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.room-card p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.room-card .book-btn, .room-card .wishlist-btn, .room-card .reviews-btn {
+  background-color: #cfa36d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.room-card .book-btn:hover,
+.room-card .wishlist-btn:hover,
+.room-card .reviews-btn:hover {
+  background-color: #b28954;
+}
+
+/* Popup Forms */
+.form-popup, .reviews-popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.form-content, .reviews-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Set a max width */
+  max-height: 80vh; /* Set max height to enable scrolling */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  text-align: left;
+  color: #333;
+  box-sizing: border-box; /* Include padding in width and height */
+  position: relative;
+}
+
+.form-content h2, .reviews-content h2 {
+  text-align: center;
+}
+
+.form-content label, .form-content input, .form-content textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-content input, .form-content textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-content button.submit-btn {
+  width: 100%;
+  background-color: #cfa36d;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-content button.submit-btn:hover {
+  background-color: #b28954;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Icon Button Styles */
+.icon-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+}
+
+.icon-btn {
+  background-color: #fff;
+  border: none;
+  color: #cfa36d;
+  font-size: 24px;
+  margin: 0 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  background-color: #f7f7f7;
+  transform: scale(1.1);
+}
+
+.icon-btn i {
+  pointer-events: none; /* Ensure only the button is clickable */
+}
+
+.icon-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px #cfa36d;
+}
+
+.book-btn {
+  background-color: #cfa36d;
+  color: #fff;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.book-btn:hover {
+  background-color: #b28954;
+}
+
+/* Highlighted Stats Section */
+/* Highlighted Stats Section */
+.stats-highlight {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* Space between the stats */
+  padding: 20px 0;
+  color: #cfa36d;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.stat-item p {
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+/* Additional styling for animated numbers */
+.counter {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: bold;
+  color: #cfa36d;
+}
+
+/* Send Message Section */
+.contact-row {
+  display: flex; /* Align form and map side by side */
+  gap: 20px;
+  max-width: 1200px; /* Optional: Set a max-width for the entire contact section */
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
+  box-sizing: border-box;
+}
+.send-message-section {
+  flex: 1;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.send-message-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.form-group {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #cfa36d;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.send-btn {
+  background-color: #cfa36d;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: #b28954;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  #contact {
+    flex-direction: column; 
+  }
+  .form-group {
+      flex-direction: column;
+  }
+}
+/* Footer Styling */
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 50px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex-basis: 20%;
+  margin: 10px 20px;
+}
+
+.footer-section h4, .footer-section h3 {
+  color: #cfa36d;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  line-height: 1.8;
+  margin-bottom: 10px;
+  color: #bbb;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.book-now-btn {
+  background-color: #cfa36d;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.book-now-btn:hover {
+  background-color: #b28954;
+}
+
+/* Quick Links & Services */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #bbb;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+/* Contact Information */
+.footer-section.contact p {
+  margin-bottom: 8px;
+}
+
+.footer-section.contact p strong {
+  color: #f1c40f;
+}
+
+.footer-section.contact a {
+  color:  #cfa36d;
+  text-decoration: none;
+}
+
+.footer-section.contact a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #cfa36d;
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.social-icons a:hover {
+  color: #b28954;
+}
+
+/* Map Section */
+.footer-section.map iframe {
+  width: 100%;
+    height: 400px; /* Adjust height if needed */
+    border: 0;
+    border-radius: 5px;
+}
+
+.footer-section.map {
+  flex: 1; /* Take up 50% of width */
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-section.map h4 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-section {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+

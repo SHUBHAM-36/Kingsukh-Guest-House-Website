@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Sukh Guest House</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1 class="logo">KING SUKH <span>Guest House</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Make Yourself At Home In Our Guest House.</h2>
+                <h4>Simple - Unique - Friendly</h4>
+                <!-- <a href="#" class="book-btn" >Book Now</a> -->
+                <button class="book-btn" onclick="openForm('Deluxe Room')">Book Now</button>
+            </div>
+        </section>
+        
+        <section id="about" class="section about-section">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <h3>The Best Holidays Start Here!</h3>
+                <br>
+                <p>Embark on a tranquil journey at our Kingsukh Guest House, enveloped by the scenic allure of Biharinath Hill, Baranti Hill, Susunia Hill, and more. Your ideal retreat beckons, promising a blend of nature's beauty and hospitality.</p>
+                <br>
+                <p>Address: Beside Barshal Water Tank, Manpur, Barhanti, West Bengal, 723156 <br>
+                Contact: +91 9007062180</p>
+           
+            
+             <!-- Highlighted stats div -->
+    <div class="stats-highlight">
+            <div class="stat-item">
+                <h3><span class="counter" data-target="100">0</span>+</h3>
+                <p>Bookings Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3><span class="counter" data-target="150">0</span>+</h3>
+                <p>Happy Customers</p>
+            </div>
+        </div>
+     </div>
+            <div class="about-image">
+                <img src="out.jpg" alt="Guest House Image">
+            </div>
+        </section>
+    
+   <section id="living-room" class="section">
+    <h2>Our Living Room</h2>
+    <div class="room-container">
+        <!-- Deluxe Room -->
+        <div class="room-card">
+            <img src="small.jpg" alt="Deluxe Room">
+            <h3>Cozy Haven Room</h3>
+            <p>Escape to comfort in our Cozy Haven Room, a snug retreat designed for intimate relaxation.</p>
+            <button class="book-btn" onclick="openForm('Deluxe Room')">Book Now</button>
+            <div class="icon-buttons">
+                <button class="icon-btn wishlist-btn" onclick="addToWishlist('Deluxe Room')">
+                    <i class="fas fa-heart"></i> <!-- Font Awesome icon for wishlist -->
+                </button>
+                <button class="icon-btn reviews-btn" onclick="openReviews('Deluxe Room')">
+                    <i class="fas fa-star"></i> <!-- Font Awesome icon for reviews -->
+                </button>
+            </div>
+        </div>
+        <!-- Suite Room -->
+        <div class="room-card">
+            <img src="large.jpg" alt="Suite Room">
+            <h3>Spacious Serenity Suite</h3>
+            <p>Indulge in luxury and ample space in our Spacious Serenity Suite, where tranquility meets roomy elegance.</p>
+            <button class="book-btn" onclick="openForm('Suite Room')">Book Now</button>
+            <div class="icon-buttons">
+                <button class="icon-btn wishlist-btn" onclick="addToWishlist('Suite Room')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-btn reviews-btn" onclick="openReviews('Suite Room')">
+                    <i class="fas fa-star"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Deluxe Suite Room -->
+        <!-- <div class="room-card">
+            <img src="deluxe-suite.jpg" alt="Deluxe Suite Room">
+            <h3>Deluxe Suite Room</h3>
+            <p>Exclusive deluxe suite offering ultimate luxury.</p>
+            <button class="book-btn" onclick="openForm('Deluxe Suite Room')">Book Now</button>
+            <div class="icon-buttons">
+                <button class="icon-btn wishlist-btn" onclick="addToWishlist('Deluxe Suite Room')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-btn reviews-btn" onclick="openReviews('Deluxe Suite Room')">
+                    <i class="fas fa-star"></i>
+                </button>
+            </div> -->
+       <!--  </div> -->
+    </div>
+</section>
+
+
+<!-- Booking Form Popup -->
+<div id="bookingForm" class="form-popup">
+    <div class="form-content">
+        <span class="close" onclick="closeForm()">&times;</span>
+        <h2>Book Your Stay<span id="room-name"></span></h2>
+        <form id="bookingFormContent" onsubmit="submitForm(event)">
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" required>
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" required>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="adults">Number of Adults:</label>
+            <input type="number" id="adults" min="1" required>
+            <label for="children">Number of Children:</label>
+            <input type="number" id="children">
+            <label for="address">Permanent Address:</label>
+            <textarea id="address" required></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
+            <h3>Thank you for your booking request!</h3>
+            <p>We will get back to you soon.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Reviews Popup -->
+<div id="reviewsPopup" class="reviews-popup">
+    <div class="reviews-content">
+        <span class="close" onclick="closeReviews()">&times;</span>
+        <h2>Reviews for <span id="room-review-name"></span></h2>
+        <div class="reviews-list">
+            <!-- Placeholder reviews (you can fetch reviews from a database later) -->
+            <p><strong>John Doe:</strong> "Had a great time in the Deluxe Room, very comfortable!"</p>
+            <p><strong>Jane Smith:</strong> "The Suite was amazing, perfect for our vacation."</p>
+            <!-- Add more reviews here -->
+        </div>
+    </div>
+</div>
+
+    
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+            <div class="service-container">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-bed"></i></div>
+                    <h3>Comfortable Rooms</h3>
+                    <p>Spacious, well-furnished rooms for a luxurious stay.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-wifi"></i></div>
+                    <h3>Free Wi-Fi</h3>
+                    <p>Stay connected with our high-speed internet access.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-concierge-bell"></i></div>
+                    <h3>24/7 Support</h3>
+                    <p>Our staff is available round the clock to assist you.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Delicious Meals</h3>
+                    <p>Enjoy a variety of cuisines with our in-house dining.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <h2>Gallery</h2>
+            <div class="gallery-images">
+                <img src="flower.jpg" alt="Room 1" data-name="Room 1" data-description="Luxurious room with city view">
+                <img src="baranti.webp" alt="Small Room" data-name="Small Room" data-description="Cozy small room for short stays">
+                <img src="mithonDam.webp" alt="Banquet Hall" data-name="Banquet Hall" data-description="Spacious hall for events">
+                 <img src="recep.jpg" alt="Room 1" data-name="Room 1" data-description="Luxurious room with city view">
+                <img src="palash.webp" alt="Small Room" data-name="Small Room" data-description="Cozy small room for short stays">
+                <img src="ayodhya.webp" alt="Banquet Hall" data-name="Banquet Hall" data-description="Spacious hall for events">   
+            </div>
+            <!-- "See More" button -->
+                <div class="see-more">
+                    <button id="seeMoreBtn">See More</button>
+                </div>
+                
+                <!-- Hidden Popup Modal -->
+                <div id="imageModal" class="modal">
+                    <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="modal-gallery">
+                        <img src="small.jpg" alt="Image 1">
+                        <img src="large.jpg" alt="Image 2">
+                        <img src="out.jpg" alt="Image 3">
+                        <img src="service.jpg" alt="Image 4">
+                        <img src="palash.webp" alt="Image 5">
+                        <img src="recep.jpg" alt="Image 6">
+                        <img src="flower.jpg" alt="Image 7">
+                        <img src="room1.jpg" alt="Image 8">
+                        <img src="ayodhya.webp" alt="Image 9">
+                        <img src="baranti.webp" alt="Image 10">
+                        <img src="mithonDam.webp" alt="Image 11">
+                    </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <!-- Gallery Popup Modal -->
+        <div id="gallery-modal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="popup-image">
+            <div id="caption"></div>
+        </div>
+
+        <section id="contact">
+            <div class="contact-row">
+                <!-- Form Section -->
+                <div class="send-message-section">
+                    <h2>Send a Message</h2>
+                    <form id="messageForm" class="message-form" onsubmit="submitMessageForm(event)">
+                        <div class="form-group">
+                            <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                            <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="send-btn">Send Message</button>
+                    </form>
+                    <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
+                        <h3>Thank you for your message!</h3>
+                        <p>We will get back to you shortly.</p>
+                    </div>
+                </div>
+                
+                <!-- Map Section -->
+                <div class="footer-section map">
+                    <h4>Find Us on Map</h4>
+                    <iframe src="https://www.google.com/maps/embed/?pb=!1m18!1m12!1m3!1d3648.11128289145!2d86.72785861429874!3d23.54787488468814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6852e5f78cd59%3A0x1a8c5f12e5cbed17!2sKingsukh%20Guest%20House!5e0!3m2!1sen!2sin!4v1609445941925!5m2!1sen!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </section>
+        
+
+        <footer>
+            <div class="footer-container">
+              <div class="footer-section about">
+                <h3>Kingsukh Guest House</h3>
+                <p>Discover a world of comfort, luxury, and adventure as you explore our curated selection of hotels, making every moment of your getaway truly extraordinary.</p>
+                <button class="book-btn" onclick="openForm('Deluxe Room')">Book Now</button>
+              </div>
+              
+              <div class="footer-section links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                  <li><a href="#">Browse Destinations</a></li>
+                  <li><a href="#">Special Offers & Packages</a></li>
+                  <li><a href="#">Room Types & Amenities</a></li>
+                  <li><a href="#">Customer Reviews & Ratings</a></li>
+                  <li><a href="#">Travel Tips & Guides</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-section services">
+                <h4>OUR SERVICES</h4>
+                <ul>
+                  <li><a href="#">Concierge Assistance</a></li>
+                  <li><a href="#">Flexible Booking Options</a></li>
+                  <li><a href="#">Airport Transfers</a></li>
+                  <li><a href="#">Wellness & Recreation</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-section contact">
+                <h4>CONTACT US</h4>
+                <p><strong></strong> Beside Barshal Water Tank, Manpur, Barhanti, West Bengal 723156</p>
+                <p><strong></strong> <a href="mailto:kkghosh0099@gmail.com">kkghosh0099@gmail.com</a></p>
+                <p><strong></strong> <a href="tel:+919007062180">+91 9007062180</a></p>
+                <div class="social-icons">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+              </div>
+              
+              
+          </footer>
+          
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
